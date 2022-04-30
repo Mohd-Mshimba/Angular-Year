@@ -1,0 +1,23 @@
+  <!-- HTML FILES -->
+
+  <div class="col-sm-3">
+    <label class="control-label">
+    </label> Search by Grade
+    <select class="form-control"  formControlName="year" (change)="filter()">
+      <option *ngFor="let ranges of range" value="{{ranges}}">
+        {{ranges}}
+      </option>
+    </select>
+  </div>
+
+  <!-- TS FILES -->
+  range:any;
+
+  ngOnInit(): void {
+    var year = new Date().getFullYear();
+    var range = [];
+    for( var i = 0; i < 50; i++){
+      range.push(year - i);
+    }
+    this.range = range;
+  }
